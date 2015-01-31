@@ -1,0 +1,71 @@
+@import "../bourbon/bourbon";
+@import "../neat/neat";
+@import "../base/grid-settings";
+@import "../base/base";
+.container {
+	@include outer-container(1000px);
+}
+.header {
+	@include fill-parent;
+	@include pad;
+}
+.contents {
+	@include row;
+}
+.sidebar {
+	@include span-columns(4);
+	@include pad;
+	ul li {
+		@include fill-parent; //fill .sidebar
+		ul {
+			@include row;
+			li {
+				@include span-columns(1 of 4);
+				@include omega(4n);
+				@include pad;
+			}
+		}
+	}
+}
+.main {
+	@include span-columns(8);
+	@include pad;
+}
+.footer {
+	@include fill-parent;
+	@include pad;
+}
+$large: new-breakpoint(min-width 981px 12);
+$tablet: new-breakpoint(max-width 980px 8);
+$mobile: new-breakpoint(max-width 500px 4);
+ul li {
+	@include pad;
+	@include fill-parent;
+	ul {
+		@include row;
+		li {
+			@include pad;
+			@include media($large) {
+				@include omega(4n);
+				@include span-columns(1 of 4);
+			}
+			@include media($tablet) {
+				@include omega(3n);
+				@include span-columns(1.3 of 4);
+			}
+		}
+	}
+}
+.sidebar {
+	@include span-columns(4);
+	@include media($mobile) {
+		display: none;
+	}
+}
+.main {
+	@include span-columns(8);
+	@include pad;
+	@include media($mobile) {
+		@include fill-parent;
+	}
+}
