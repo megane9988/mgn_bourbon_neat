@@ -2,6 +2,7 @@
 
 ### Divshot ###
 .divshot-cache
+divshot.json
 
 ### Sass ###
 .sass-cache
